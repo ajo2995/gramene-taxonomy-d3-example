@@ -16,11 +16,11 @@ var WareTreeGeneDistribution = require('./kb/WareTreeGeneDistribution.js');
 //   3. requests also to get taxonomy facet.
 var exampleQuery = {
   "q": "",
-  "filters": {
-    "interpro_ancestors:2347": {
-      "fq": "interpro_ancestors:2347"
-    }
-  },
+  // "filters": {
+  //   "interpro_ancestors:2347": {
+  //     "fq": "interpro_ancestors:2347"
+  //   }
+  // },
   "resultTypes": {
     "taxon_id": {"facet.field": "{!facet.limit='50' facet.mincount='0' key='taxon_id'}taxon_id"},
     "fixed_200_bin": {"facet.field": "{!facet.limit='-1' facet.mincount='1' key='fixed_200_bin'}fixed_200_bin"}

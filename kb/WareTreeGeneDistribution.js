@@ -75,7 +75,15 @@ module.exports = KBWidget({
                                         .attr('class', lgvID)
                                         .attr('transform', $tree.options.lgvTransform)
                             ;
-
+                            lgvSelection
+                              .enter()
+                                .append('text')
+                .attr('style', 'font-size : 11px;cursor : pointer;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;')
+                .attr("dy", ".35em")
+                .attr('dx', $tree.options.labelWidth + $tree.options.labelSpace - 3)
+                .attr('text-anchor','end')
+                                  .text(d.model.genome.results.count)
+                            ;
                             if (d.$lgv == undefined) {
                                 d.$lgv = GeneDistribution.bind(jqElem('div'))(
                                     {
@@ -114,15 +122,17 @@ module.exports = KBWidget({
                     layout          : d3.layout.cluster().separation(function(a,b){return 1}),
                     distance        : 10,
                     fixed           : true,
-                    labelWidth      : 250,
+                    labelWidth      : 150,
+                    labelWidth1     : 100,
+                    labelSpace      : 10,
                     nodeHeight      : 7,
                     nameFunction    : function (d) {
                       var name = d.model.name;
-                      if(d.model.genome) {
-                        name += ' (' + d.model.genome.results.count +
-                          ' results in ' + d.model.genome.results.bins +
-                          ' bins)';
-                      }
+                      // if(d.model.genome) {
+                      //   name += ' (' + d.model.genome.results.count +
+                      //     ' results in ' + d.model.genome.results.bins +
+                      //     ' bins)';
+                      // }
                       return name;
                     },
 

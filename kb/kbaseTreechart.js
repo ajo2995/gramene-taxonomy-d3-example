@@ -230,13 +230,13 @@ var chartOffset = 0;
                     var fakeRight = fakeBounds[1];
                     d.width = fakeBounds[2];
 
-                    if ($tree.options.labelWidth && d.width > $tree.options.labelWidth) {
+                    if ($tree.options.labelWidth1 && d.width > $tree.options.labelWidth1) {
                         var words = d.name.split(/\s+/);
                         var shortWords = [words.shift()];
 
                         fakeText.text(shortWords.join(' '));
 var throttle = 0
-                        while (findWidth(fakeText, d)[2] < $tree.options.labelWidth && throttle++ < 40) {
+                        while (findWidth(fakeText, d)[2] < $tree.options.labelWidth1 && throttle++ < 40) {
                             shortWords.push(words.shift());
                             fakeText.text(shortWords.join(' '));
                         }
@@ -354,7 +354,7 @@ var throttle = 0
                 .attr("dy", ".35em")
                 .text(function(d) {
                     var name = d.name;
-                    if (d.width > $tree.options.labelWidth && $tree.options.truncationFunction) {
+                    if (d.width > $tree.options.labelWidth1 && $tree.options.truncationFunction) {
                         name = $tree.options.truncationFunction(d, this, $tree);
                     }
                     return name;
